@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  language_name: MyString
+  homonyme_percent: 9.99
+  sounds_id: 1
+
+two:
+  language_name: MyString
+  homonyme_percent: 9.99
+  sounds_id: 1

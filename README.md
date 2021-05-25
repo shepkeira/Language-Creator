@@ -23,25 +23,39 @@ Words kept in a dictionary
 * Add translation between made up languages
 
 ## Database design
-Languages
+Language
 | Id      | Language_Name| Homonyme_Percent | Sounds_Id |
 | :---    |    :----     |  :---            |   :---    |
 | 1       | English      | 0.2              | 1         |
 
-Sounds
+LanguageSounds
 | Id    | Language_id | Vowel_Sounds | Consonant_Sounds       |
 | :---  |    :----    |        :---  | :---                   |
 | 1     | 1           | ʌɑæeəɜɪiɒɔʊu | bdfghjklmnŋprsʃtθðvwzʒ |
 
 Dictionary of Phonemes
-| Id   | English_Word | New_Language_Word |
-| :--- |    :----     |          :---     |
-| 1    | Hello        | hɛləʊ             |
+| Id   | English_Word | New_Language_Word | Language_Id |
+| :--- |    :----     |          :---     | :---        |
+| 1    | Hello        | hɛləʊ             | 1           |
 
 ## Development Plan
 - [x] Create App
-- [ ] Create Database
+- [x] Create Database
 - [ ] Allow for editing and adding to database
+  - [x] Adding to Language Database
+  - [x] Editing Language Database
+  - [ ] Adding to Sound Database
+  - [ ] Editing to Sound Database
+  - [ ] Adding to Phonemes Database
+  - [ ] Editing to Phonemes Database
 - [ ] Create word generation
 - [ ] Single word translations/generation
 - [ ] Multi word translantion/generation
+
+ruby bin/rails generate model Language language_name:string homonyme_percent:decimal
+
+ruby bin/rails generate model LanguageSound language_id:integer vowel_sounds:string consonant_sounds:string
+
+ruby bin/rails generate model Phoneme english_word:string language_word:string language_id:integer
+
+ruby bin/rails generate controller Languages index --skip-routes

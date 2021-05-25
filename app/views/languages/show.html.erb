@@ -1,0 +1,8 @@
+<h1><%= @language.language_name %></h1>
+
+<p>Homophone Percent: <%= @language.homonyme_percent %>%<br>
+Vowel Sounds: <%= @language.show_sounds %></p> 
+
+<ul>
+    <li><%= link_to "Edit", edit_language_path(@language) %></li>
+</ul>

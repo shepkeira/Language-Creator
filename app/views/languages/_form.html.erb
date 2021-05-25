@@ -1,0 +1,31 @@
+<%= form_with model: @language do |form| %>
+  <div>
+    <%= form.label :language_name %><br>
+    <%= form.text_field :language_name %>
+    <% @language.errors.full_messages_for(:language_name).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :homonyme_percent %><br>
+    <%= form.text_field :homonyme_percent %> %
+    <% @language.errors.full_messages_for(:body).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+<div class="field">
+  <%= form.label "Sounds" %><br />
+  <%= form.collection_check_boxes :vowel_sounds, Sound.all, :id, :sound do |b| %>
+    <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %> 
+    </div>
+  <% end %>
+</div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
