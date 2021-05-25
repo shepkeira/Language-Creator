@@ -37,3 +37,11 @@ Dictionary of Phonemes
 | Id   | English_Word | New_Language_Word |
 | :--- |    :----     |          :---     |
 | 1    | Hello        | hɛləʊ             |
+
+## Development Plan
+- [x] Create App
+- [ ] Create Database
+- [ ] Allow for editing and adding to database
+- [ ] Create word generation
+- [ ] Single word translations/generation
+- [ ] Multi word translantion/generation
