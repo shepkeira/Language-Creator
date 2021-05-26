@@ -1,3 +1,42 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  border-style: solid;
+}
+
+.row {
+  display: flex;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.list_col {
+  column-count: 2;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
 <%= form_with model: @language do |form| %>
   <div>
     <%= form.label :language_name %><br>
@@ -14,6 +53,36 @@
         <div><%= message %></div>
     <% end %>
   </div>
+
+<div class="row">
+<div class="column">
+<h2>Vowels</h2>
+<div class="list_col">
+  <% for sound in Sound.all %>
+    <% if sound.sound_type == 'vowel' %>
+      <%= check_box_tag "language[sound_ids][]", sound.id, @language.sounds.include?(sound) %>
+      <%=h sound.sound %><br />
+    <% end %>
+  <% end %>
+</div>
+</div>
+
+<div class="column">
+<h2>Consonants</h2>
+<div class="list_col">
+  <% for sound in Sound.all %>
+    <% if sound.sound_type == 'consonant' %>
+      <%= check_box_tag "language[sound_ids][]", sound.id, @language.sounds.include?(sound) %>
+      <%=h sound.sound %><br />
+    <% end %>
+  <% end %>
+</div>
+</div>
+</div>
+
+<% @language.errors.full_messages_for(:sounds).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
 
   <div>
     <%= form.submit %>

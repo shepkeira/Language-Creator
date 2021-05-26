@@ -1,10 +1,10 @@
 class CreateLanguageSounds < ActiveRecord::Migration[6.1]
   def change
     create_table :language_sounds do |t|
-      t.integer :language_id
-      t.integer :sound_id
+      t.references :language, index: true, foreign_key: true
+      t.references :sound, index: true, foreign_key: true
 
-      t.timestamps
+      t.timestamps null: false
     end
   end
 end

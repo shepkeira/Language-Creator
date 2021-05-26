@@ -27,9 +27,7 @@ class LanguagesController < ApplicationController
 
   def update
     @language = Language.find(params[:id])
-
     if @language.update(language_params)
-      puts language_params
       redirect_to @language
     else
       render :edit
@@ -38,6 +36,6 @@ class LanguagesController < ApplicationController
 
   private
   def language_params
-    params.require(:language).permit(:language_name, :homophone_percent)
+    params.require(:language).permit(:language_name, :homophone_percent, sound_ids: [])
   end
 end
