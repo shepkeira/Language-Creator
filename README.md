@@ -24,19 +24,34 @@ Words kept in a dictionary
 
 ## Database design
 Language
-| Id      | Language_Name| Homonyme_Percent | Sounds_Id |
-| :---    |    :----     |  :---            |   :---    |
-| 1       | English      | 0.2              | 1         |
+| Id      | Language_Name| Homophone_Percent |
+| :---    |    :----     |  :---             |
+| 1       | English      | 0.2               |
+
+ruby bin/rails generate model Language language_name:string homophone_percent:decimal
+
+Sounds
+| Id    |   Sound     | Type       | 
+| :---  |    :----    | :--        |
+| 1     | ʌ           |  vowel     |
+| 2     | d           | consontant |
+
+ruby bin/rails generate model Sound sound:string type:string
 
 LanguageSounds
-| Id    | Language_id | Vowel_Sounds | Consonant_Sounds       |
-| :---  |    :----    |        :---  | :---                   |
-| 1     | 1           | ʌɑæeəɜɪiɒɔʊu | bdfghjklmnŋprsʃtθðvwzʒ |
+| Id    | Language_Id | Sound_Id |
+| :--   | :---        | :---     |
+| 1     | 1           | 1        |
+| 1     | 1           | 2        |
+
+ruby bin/rails generate model LanguageSound language_id:integer sound_id:integer
 
 Dictionary of Phonemes
 | Id   | English_Word | New_Language_Word | Language_Id |
 | :--- |    :----     |          :---     | :---        |
 | 1    | Hello        | hɛləʊ             | 1           |
+
+ruby bin/rails generate model Phoneme english_word:string language_word:string language_id:integer
 
 ## Development Plan
 - [x] Create App
@@ -52,10 +67,10 @@ Dictionary of Phonemes
 - [ ] Single word translations/generation
 - [ ] Multi word translantion/generation
 
-ruby bin/rails generate model Language language_name:string homonyme_percent:decimal
 
-ruby bin/rails generate model LanguageSound language_id:integer vowel_sounds:string consonant_sounds:string
 
-ruby bin/rails generate model Phoneme english_word:string language_word:string language_id:integer
+
+
+
 
 ruby bin/rails generate controller Languages index --skip-routes

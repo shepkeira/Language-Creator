@@ -1,21 +1,10 @@
-require 'json'
-
 class Language < ApplicationRecord
-    has_one :language_sound
-    has_many :phoneme
-    has_and_belongs_to_many :sounds
+    has_and_belongs_to_many :language_sounds
+    has_many :phonemes
 
     validates :language_name, presence: true
-    validates :homonyme_percent, presence: true, numericality: true
-
-    before_save do
-        require 'pry-byebug';binding.pry
-        sounds = self.vowel_sounds.split(", ").map {|x| x[/\d+/]}
-        sounds = sounds.filter_map { |i| i.to_i if !i.nil? } 
-        self.vowel_sounds = sounds
-        # self.vowel_sounds.gsub!(/[\[\]\"]/, "") if attribute_present?("vowel_sounds")
-    end
-
+    validates :homophone_percent, presence: true, numericality: true
+    
     def show_sounds
         require 'pry-byebug';binding.pry
         sounds_array = []

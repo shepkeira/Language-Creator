@@ -1,3 +1,3 @@
 class Phoneme < ApplicationRecord
-    belongs_to :language
+    belongs_to :languages
 end

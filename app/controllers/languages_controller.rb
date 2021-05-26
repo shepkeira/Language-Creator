@@ -39,6 +39,6 @@ class LanguagesController < ApplicationController
 
   private
   def language_params
-    params.require(:language).permit(:language_name, :homonyme_percent, vowel_sounds:[])
+    params.require(:language).permit(:language_name, :homophone_percent)
   end
 end

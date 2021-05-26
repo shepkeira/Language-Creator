@@ -10,29 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_043114) do
-
-  create_table "join_talbe_sound_languages", force: :cascade do |t|
-    t.string "sound"
-    t.string "language"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_05_25_195644) do
 
   create_table "language_sounds", force: :cascade do |t|
     t.integer "language_id"
-    t.string "vowel_sounds"
-    t.string "consonant_sounds"
+    t.integer "sound_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "languages", force: :cascade do |t|
     t.string "language_name"
-    t.decimal "homonyme_percent"
+    t.decimal "homophone_percent"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "vowel_sounds"
   end
 
   create_table "phonemes", force: :cascade do |t|
@@ -45,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_043114) do
 
   create_table "sounds", force: :cascade do |t|
     t.string "sound"
+    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

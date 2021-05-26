@@ -2,10 +2,8 @@
 
 one:
   language_name: MyString
-  homonyme_percent: 9.99
-  sounds_id: 1
+  homophone_percent: 9.99
 
 two:
   language_name: MyString
-  homonyme_percent: 9.99
-  sounds_id: 1
+  homophone_percent: 9.99

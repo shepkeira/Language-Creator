@@ -8,22 +8,12 @@
   </div>
 
   <div>
-    <%= form.label :homonyme_percent %><br>
-    <%= form.text_field :homonyme_percent %> %
-    <% @language.errors.full_messages_for(:body).each do |message| %>
+    <%= form.label :homophone_percent %><br>
+    <%= form.text_field :homophone_percent %> %
+    <% @language.errors.full_messages_for(:homophone_percent).each do |message| %>
         <div><%= message %></div>
     <% end %>
   </div>
-
-<div class="field">
-  <%= form.label "Sounds" %><br />
-  <%= form.collection_check_boxes :vowel_sounds, Sound.all, :id, :sound do |b| %>
-    <div class="collection-check-box">
-      <%= b.check_box %>
-      <%= b.label %> 
-    </div>
-  <% end %>
-</div>
 
   <div>
     <%= form.submit %>
