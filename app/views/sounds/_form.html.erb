@@ -1,0 +1,21 @@
+<%= form_with model: @sound do |form| %>
+  <div>
+    <%= form.label :sound %><br>
+    <%= form.text_field :sound %>
+    <% @sound.errors.full_messages_for(:sound).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :sound_type %><br>
+    <%= form.text_field :sound_type %> [vowel or consonant]
+    <% @sound.errors.full_messages_for(:sound_type).each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

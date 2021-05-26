@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_195644) do
+ActiveRecord::Schema.define(version: 2021_05_26_002818) do
 
   create_table "language_sounds", force: :cascade do |t|
     t.integer "language_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_195644) do
 
   create_table "sounds", force: :cascade do |t|
     t.string "sound"
-    t.string "type"
+    t.string "sound_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -36,7 +36,7 @@ Sounds
 | 1     | ʌ           |  vowel     |
 | 2     | d           | consontant |
 
-ruby bin/rails generate model Sound sound:string type:string
+ruby bin/rails generate model Sound sound:string sound_type:string
 
 LanguageSounds
 | Id    | Language_Id | Sound_Id |
@@ -59,8 +59,10 @@ ruby bin/rails generate model Phoneme english_word:string language_word:string l
 - [ ] Allow for editing and adding to database
   - [x] Adding to Language Database
   - [x] Editing Language Database
-  - [ ] Adding to Sound Database
-  - [ ] Editing to Sound Database
+  - [x] Adding to Sound Database
+  - [x] Editing to Sound Database
+  - [ ] Adding to Language Sounds Database
+  - [ ] Ediitng Language Sounds Database
   - [ ] Adding to Phonemes Database
   - [ ] Editing to Phonemes Database
 - [ ] Create word generation

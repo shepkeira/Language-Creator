@@ -28,7 +28,6 @@ class LanguagesController < ApplicationController
   def update
     @language = Language.find(params[:id])
 
-    puts language_params
     if @language.update(language_params)
       puts language_params
       redirect_to @language
