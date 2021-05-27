@@ -3,7 +3,7 @@ class CreatePhonemes < ActiveRecord::Migration[6.1]
     create_table :phonemes do |t|
       t.string :english_word
       t.string :language_word
-      t.integer :language_id
+      t.reference :language, null: false, foreign_key: true
 
       t.timestamps
     end

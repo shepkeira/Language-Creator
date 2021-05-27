@@ -1,7 +1,86 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  border-style: solid;
+}
+
+.row {
+  display: flex;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.list_col {
+  column-count: 2;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
 <h1><%= @language.language_name %></h1>
 
-<p>Homophone Percent: <%= @language.homophone_percent %>%<br>
+<p>
+Homophone Percent: <%= @language.homophone_percent %>%<br>
+<% sounds = []%>
+Sounds: <% @language.sounds.each do |sound| %>
+    <% sounds << sound.sound %>
+<% end %>
+<%= sounds.join(',')%><br>
+Words:
+<div class="Row">
+<div class="list_col">
+<% @language.phonemes.each do |phoneme| %>
+<% if phoneme.errors.full_messages.empty? %>
+    <li><strong>English: </strong> <%= phoneme.english_word %>
+    <strong><%= @language.language_name %>: </strong> <%= phoneme.language_word %></li>
+<% end %>
+<% end %>
+    
+</div>
+</div>
+</p>
 
 <ul>
     <li><%= link_to "Edit", edit_language_path(@language) %></li>
+    <li><%= link_to "Destroy", language_path(@language),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %></li>
 </ul>
+    
+    <h3>Add Word</h3>
+    <%= form_with model: [ @language, @language.phonemes.build] do |form| %>
+        <p>
+            <%= form.label :english_word %><br>
+            <%= form.text_field :english_word %>
+        </p>
+        <p>
+            <%= form.label :language_word %><br>
+            <%= form.text_field :language_word %>
+        </p>
+        <% @language.errors.full_messages.each do |message| %>
+        <div><p><%= message %></p></div>
+    <% end %>
+        <p>
+            <%= form.submit %>
+        </p>
+    <% end %>
