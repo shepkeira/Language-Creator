@@ -8,7 +8,7 @@ class Language < ApplicationRecord
     has_many :language_sounds
     has_many :sounds, :through => :language_sounds
 
-    has_many :phonemes
+    has_many :phonemes, dependent: :destroy
 
     validates_with LanguageValidator
     validates :language_name, presence: true

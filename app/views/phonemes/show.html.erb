@@ -1,0 +1,11 @@
+<% @phoneme = Phoneme.find(params[:id]) %>
+<% @language = @phoneme.language %>
+
+<h1><%= @phoneme.english_word %></h1>
+
+<li><strong>English: </strong> <%= @phoneme.english_word %>
+    <strong><%= @language.language_name %>: </strong> <%= @phoneme.language_word %><br>
+    <%= link_to 'Delete Word', [@phoneme.language, @phoneme],
+      method: :delete,
+      data: { confirm: "Are you sure>" } %>
+      <%= link_to 'Edit Word', edit_language_phoneme_path(@language, @phoneme) %></li>

@@ -65,8 +65,8 @@ ruby bin/rails generate model Phoneme english_word:string language_word:string l
   - [x] Ediitng Language Sounds Database
   - [x] Deleting Languages
   - [x] Adding to Phonemes Database
-  - [ ] Editing to Phonemes Database
-  - [ ] Deleting Phonemes
+  - [x] Editing to Phonemes Database
+  - [x] Deleting Phonemes
   - [ ] Add testing
 - [ ] Create word generation
 - [ ] Single word translations/generation
