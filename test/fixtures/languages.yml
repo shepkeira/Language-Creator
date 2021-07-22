@@ -3,7 +3,9 @@
 one:
   language_name: MyString
   homophone_percent: 9.99
+  id: 1
 
 two:
   language_name: MyString
   homophone_percent: 9.99
+  id: 2

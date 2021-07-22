@@ -71,3 +71,6 @@ ruby bin/rails generate model Phoneme english_word:string language_word:string l
 - [ ] Create word generation
 - [ ] Single word translations/generation
 - [ ] Multi word translantion/generation
+
+## To Run Test
+``` rails test ```

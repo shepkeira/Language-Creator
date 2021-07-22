@@ -2,8 +2,8 @@
 
 one:
   sound: MyString
-  type: 
+  sound_type: vowel
 
 two:
   sound: MyString
-  type: 
+  sound_type: vowel
