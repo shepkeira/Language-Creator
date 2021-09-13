@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_002818) do
+ActiveRecord::Schema.define(version: 2021_09_13_174525) do
 
   create_table "language_sounds", force: :cascade do |t|
     t.integer "language_id"
     t.integer "sound_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_language_sounds_on_language_id"
+    t.index ["sound_id"], name: "index_language_sounds_on_sound_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -29,9 +31,10 @@ ActiveRecord::Schema.define(version: 2021_05_26_002818) do
   create_table "phonemes", force: :cascade do |t|
     t.string "english_word"
     t.string "language_word"
-    t.integer "language_id"
+    t.integer "language_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["language_id"], name: "index_phonemes_on_language_id"
   end
 
   create_table "sounds", force: :cascade do |t|
@@ -41,4 +44,5 @@ ActiveRecord::Schema.define(version: 2021_05_26_002818) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "phonemes", "languages"
 end
