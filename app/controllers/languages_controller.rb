@@ -1,4 +1,6 @@
 class LanguagesController < ApplicationController
+  before_action :set_language, only: [:show, :edit, :update, :destroy]
+
   def index
     @languages = Language.all
   end
@@ -44,5 +46,9 @@ class LanguagesController < ApplicationController
   private
   def language_params
     params.require(:language).permit(:language_name, :homophone_percent, sound_ids: [])
+  end
+
+  def set_language
+    @language = Language.find(params[:id])
   end
 end

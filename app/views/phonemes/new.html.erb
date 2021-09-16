@@ -1,4 +1,5 @@
 <h1>New Phoneme</h1>
-<% @langauge = Language.find(params[:language_id])%>
 
-<%= render "form", language: @language %>
+<%= render 'form', phoneme: @phoneme %>
+
+<%= link_to 'Back', language_phonemes_path(@language) %>

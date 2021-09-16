@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_174525) do
+ActiveRecord::Schema.define(version: 2021_05_26_002818) do
 
   create_table "language_sounds", force: :cascade do |t|
     t.integer "language_id"
@@ -44,5 +44,7 @@ ActiveRecord::Schema.define(version: 2021_09_13_174525) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "language_sounds", "languages"
+  add_foreign_key "language_sounds", "sounds"
   add_foreign_key "phonemes", "languages"
 end

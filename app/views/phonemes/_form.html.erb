@@ -1,27 +1,27 @@
-<% if params[:language_id] && params[:id] %>
-    <% @language = Language.find(params[:language_id])%>
-    <% @phoneme = Phoneme.find(params[:id])%>
-<% elsif params[:language_id] %>
-    <% @language = Language.find(params[:language_id]) %>
-    <% @phoneme = @language.phonemes.build %>
-<% elsif params[:id] %>
-    <% @language = Language.find(params[:id]) %>
-    <% @phoneme = @language.phonemes.build %>
-<% end %>
+<%= form_with(model: [@language, phoneme]) do |form| %>
+  <% if phoneme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(phoneme.errors.count, "error") %> prohibited this word from being saved:</h2>
 
-<%= form_with model: [ @language, @phoneme] do |form| %>
-    <p>
-        <%= form.label :english_word %><br>
-        <%= form.text_field :english_word %>
-    </p>
-    <p>
-        <%= form.label :language_word %><br>
-        <%= form.text_field :language_word %>
-    </p>
-    <% @language.errors.full_messages.each do |message| %>
-        <div><p><%= message %></p></div>
-    <% end %>
-    <p>
-        <%= form.submit %>
-    </p>
+      <ul>
+        <% phoneme.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :english_word %>
+    <%= form.text_area :english_word %>
+  </div>
+
+  <div class="field">
+    <%= form.label :language_word %>
+    <%= form.text_area :language_word %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>

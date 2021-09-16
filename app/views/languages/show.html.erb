@@ -51,12 +51,10 @@ Words:
 <div class="list_col">
 <% @language.phonemes.each do |phoneme| %>
 <% if phoneme.errors.full_messages.empty? %>
+    <a href = <%=language_phoneme_path(id: phoneme.id, language_id: @language.id)%>>
     <li><strong>English: </strong> <%= phoneme.english_word %>
     <strong><%= @language.language_name %>: </strong> <%= phoneme.language_word %><br>
-    <%= link_to 'Delete Word', [phoneme.language, phoneme],
-      method: :delete,
-      data: { confirm: "Are you sure>" } %>
-      <%= link_to 'Edit Word', edit_language_phoneme_path(@language, phoneme) %></li>
+    </a>
 <% end %>
 <% end %>
     
@@ -72,5 +70,4 @@ Words:
 </ul>
     
     <h3>Add Word</h3>
-    <%= render 'phonemes/form' %>
-    <%= link_to 'Add Word', new_language_phoneme_path(language_id: @language.id) %>
+    <%= link_to 'Add Phoneme', new_language_phoneme_path(language_id: @language.id) %>

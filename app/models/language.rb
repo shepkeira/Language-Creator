@@ -4,8 +4,7 @@ require_relative '../../lib/validators/phoneme_validator.rb'
 
 class Language < ApplicationRecord
     include ActiveModel::Validations
-    #has_and_belongs_to_many :language_sounds
-    has_many :language_sounds
+    has_many :language_sounds, dependent: :destroy
     has_many :sounds, :through => :language_sounds
 
     has_many :phonemes, dependent: :destroy

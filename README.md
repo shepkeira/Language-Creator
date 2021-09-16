@@ -68,9 +68,21 @@ ruby bin/rails generate model Phoneme english_word:string language_word:string l
   - [x] Editing to Phonemes Database
   - [x] Deleting Phonemes
   - [ ] Add testing
+    - [x] Controllers
+    - [x] Models
 - [ ] Create word generation
 - [ ] Single word translations/generation
 - [ ] Multi word translantion/generation
 
 ## To Run Test
 ``` rails test ```
+
+
+## To Run Locally
+``` rake db:seed ```
+``` rails server ```
+Then go to ```http://localhost:3000/```
+
+# Accidentaly closed without terminatting the server?
+Replace 15356 with the value in tmp/pids/server.pid
+``` taskkill /f /pid 15356 ```

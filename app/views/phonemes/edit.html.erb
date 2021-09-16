@@ -1,3 +1,6 @@
 <h1>Edit Phoneme</h1>
-<% language = Language.find(@phoneme.language_id)%>
-<%= render "form" %>
+
+<%= render 'form', phoneme: @phoneme %>
+
+<%= link_to 'Show', [@language, @phoneme] %> |
+<%= link_to 'Back', language_phonemes_path(language_id: @language.id) %>
