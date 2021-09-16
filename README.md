@@ -67,7 +67,7 @@ ruby bin/rails generate model Phoneme english_word:string language_word:string l
   - [x] Adding to Phonemes Database
   - [x] Editing to Phonemes Database
   - [x] Deleting Phonemes
-  - [ ] Add testing
+  - [x] Add testing
     - [x] Controllers
     - [x] Models
 - [ ] Create word generation
@@ -83,6 +83,6 @@ ruby bin/rails generate model Phoneme english_word:string language_word:string l
 ``` rails server ```
 Then go to ```http://localhost:3000/```
 
-# Accidentaly closed without terminatting the server?
+### Accidentaly closed without terminatting the server?
 Replace 15356 with the value in tmp/pids/server.pid
 ``` taskkill /f /pid 15356 ```
