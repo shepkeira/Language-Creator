@@ -79,10 +79,17 @@ ruby bin/rails generate model Phoneme english_word:string language_word:string l
 
 
 ## To Run Locally
-``` rake db:seed ```
 ``` rails server ```
 Then go to ```http://localhost:3000/```
 
 ### Accidentaly closed without terminatting the server?
 Replace 15356 with the value in tmp/pids/server.pid
 ``` taskkill /f /pid 15356 ```
+
+## To Reset the Local Database
+```
+rake db:drop:_unsafe
+rake db:create
+rake db:migrate
+rake db:seed
+```
